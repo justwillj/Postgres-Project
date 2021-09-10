@@ -1,9 +1,13 @@
 # Postgres Project
 
 ## Setup Instructions
-1. Using Git Bash, Clone the repository
-2. Open pgAdmin and create a new database called **postgres_project**
-3. Restore the dump file **project_dump.backup**
+1. Download **project_dump.backup** file
+2. After creating a new database in pgAdmin, right click on newly created database, then click `Restore`
+3. Leave `Format` as "Custom or tar"
+4. In the `Filename` selector, find and select **project_dump.backup**
+5. Leave `Number of jobs` empty
+6. For `Role Name`, click the drop-down and select **postgres**
+7. Click `Restore` at the bottom to restore
 
 
 ## Relational Databases
@@ -16,7 +20,7 @@
 
 ### Multiple Choice
 
-1. Users are not allowed to add purchases where the amount of items bought exceeds the amount of items in the store. This is because:
+1. Users are not allowed to add items to purchases where the amount of items bought exceeds the amount of items in the store. This is because:
     1. There is a Trigger Function preventing new purchases that exceed the current inventory.
     2. This will cause a Foreign Key Constraint Violation on the Inventory table.
     3. There is a custom rule on the items table that prevents it from ever having a negative value for the field 'quantity'.
