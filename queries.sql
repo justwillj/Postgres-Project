@@ -54,3 +54,13 @@ ON payment_types.id = payment_type_id
 WHERE stores.id = 15
 GROUP BY stores.name, payment_types.payment_method
 ORDER BY payment_types.payment_method;
+
+--Requirement 7
+SELECT stores.name, items.name, inventory.quantity
+FROM stores
+INNER JOIN inventory
+ON stores.id = store_id
+INNER JOIN items
+ON items.id = item_id
+WHERE inventory.quantity < 10
+ORDER BY stores.name;
