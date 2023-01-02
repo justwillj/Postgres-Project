@@ -6,7 +6,12 @@ ON address.id = stores.address_id
 ORDER BY name ASC;
 
 --Requirement 2
-
+SELECT stores.name, SUM(purchases.customer_id)
+FROM stores
+INNER JOIN purchases
+ON stores.id = store_id
+INNER JOIN purchase_items
+ON purchases.id = purchase_id;
 
 --Requirement 3
 SELECT stores.name, customers.first_name, customers.last_name
