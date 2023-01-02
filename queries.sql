@@ -64,3 +64,17 @@ INNER JOIN items
 ON items.id = item_id
 WHERE inventory.quantity < 10
 ORDER BY stores.name;
+
+--Requirement 8
+SELECT customers.first_name, customers.last_name, purchases.purchase_date, items.name, payment_types.payment_method, purchase_items.quantity
+FROM customers
+INNER JOIN purchases
+ON customers.id = customer_id
+INNER JOIN payment_types
+ON payment_types.id = purchases.payment_type_id
+INNER JOIN purchase_items
+ON purchases.id = purchase_id
+INNER JOIN items
+ON items.id = item_id
+WHERE customers.id = 154
+ORDER BY purchases.purchase_date DESC;
