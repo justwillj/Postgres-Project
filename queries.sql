@@ -78,3 +78,8 @@ INNER JOIN items
 ON items.id = item_id
 WHERE customers.id = 154
 ORDER BY purchases.purchase_date DESC;
+
+--Requirement 9
+UPDATE purchases 
+SET payment_type_id = 3
+WHERE payment_type_id = 5;
