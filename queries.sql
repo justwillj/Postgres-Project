@@ -83,3 +83,7 @@ ORDER BY purchases.purchase_date DESC;
 UPDATE purchases 
 SET payment_type_id = 3
 WHERE payment_type_id = 5;
+
+--Requirement 10
+DELETE FROM payment_types
+WHERE payment_method = 'apple pay';
