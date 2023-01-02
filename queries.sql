@@ -28,3 +28,16 @@ ON stores.id = store_id
 INNER JOIN items
 ON items.id = item_id
 WHERE stores.id = 16;
+
+--Requirement 5
+SELECT purchases.purchase_date, SUM(items.price)
+FROM stores
+INNER JOIN purchases
+ON stores.id = store_id
+INNER JOIN purchase_items
+ON purchases.id = purchase_id
+INNER JOIN items
+ON items.id = item_id
+WHERE stores.id = 16
+GROUP BY purchases.purchase_date
+ORDER BY purchase_date ASC;
