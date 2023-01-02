@@ -43,7 +43,7 @@ GROUP BY purchases.purchase_date
 ORDER BY purchase_date ASC;
 
 --Requirement 6
-SELECT stores.name, payment_types.payment_method, COUNT(payment_types.payment_method) as "Total"
+SELECT stores.name, payment_types.payment_method, COUNT(payment_types.payment_method)
 FROM stores
 INNER JOIN purchases
 ON stores.id = store_id
