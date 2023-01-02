@@ -41,3 +41,16 @@ ON items.id = item_id
 WHERE stores.id = 16
 GROUP BY purchases.purchase_date
 ORDER BY purchase_date ASC;
+
+--Requirement 6
+SELECT stores.name, payment_types.payment_method, COUNT(payment_types.payment_method) as "Total"
+FROM stores
+INNER JOIN purchases
+ON stores.id = store_id
+INNER JOIN purchase_items
+ON purchases.id = purchase_id
+INNER JOIN payment_types
+ON payment_types.id = payment_type_id
+WHERE stores.id = 15
+GROUP BY stores.name, payment_types.payment_method
+ORDER BY payment_types.payment_method;
