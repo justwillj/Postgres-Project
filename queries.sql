@@ -87,3 +87,7 @@ WHERE payment_type_id = 5;
 --Requirement 10
 DELETE FROM payment_types
 WHERE payment_method = 'apple pay';
+
+--Requirement 11
+INSERT INTO items (name,price,notes) VALUES
+	('Frosted Flakes',5,'They’re Grate');
