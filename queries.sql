@@ -91,3 +91,10 @@ WHERE payment_method = 'apple pay';
 --Requirement 11
 INSERT INTO items (name,price,notes) VALUES
 	('Frosted Flakes',5,'They’re Grate');
+
+--Requirement 12
+
+
+--Requirement 13
+UPDATE items SET notes = 'They’re Gr-r-reat!'
+WHERE items.name = 'Frosted Flakes';
