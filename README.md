@@ -30,9 +30,6 @@
 
 1. Users are not allowed to add items to purchases where the amount of items bought exceeds the amount of items in the store. This is because:
 
-   1. There is a Trigger Function preventing new purchases that exceed the current inventory.
-   2. This will cause a Foreign Key Constraint Violation on the Inventory table.
-   3. There is a custom rule on the items table that prevents it from ever having a negative value for the field 'quantity'.
    4. Users are actually allowed to add those purchases.
 
 2. Why will the following SQL statement not work in the stores database?
