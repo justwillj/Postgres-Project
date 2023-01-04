@@ -34,20 +34,7 @@ ON items.id = item_id
 WHERE stores.name = 'Administaff, Inc.';
 
 --Requirement 5
-SELECT purchases.purchase_date, SUM(items.price)
-FROM stores
-INNER JOIN purchases
-ON stores.id = store_id
-INNER JOIN purchase_items
-ON purchases.id = purchase_id
-INNER JOIN items
-ON items.id = item_id
-WHERE stores.name = 'Administaff, Inc.'
-GROUP BY purchases.purchase_date
-ORDER BY purchase_date ASC;
-
---
-SELECT EXTRACT (MONTH FROM purchases.purchase_date) AS month, SUM(items.price)
+SELECT EXTRACT (MONTH FROM purchases.purchase_date) AS month, CAST (SUM(items.price) AS MONEY) as total_sales
 FROM stores
 INNER JOIN purchases
 ON stores.id = store_id
@@ -58,7 +45,7 @@ ON items.id = item_id
 WHERE stores.name = 'Administaff, Inc.'
 GROUP BY purchases.purchase_date
 ORDER BY month ASC;
---
+
 
 --Requirement 6
 SELECT stores.name, payment_types.payment_method, COUNT(payment_types.payment_method)
@@ -74,7 +61,7 @@ GROUP BY stores.name, payment_types.payment_method
 ORDER BY payment_types.payment_method;
 
 --Requirement 7
-SELECT stores.name, items.name, inventory.quantity
+SELECT stores.name as store_name, items.name as item_name, inventory.quantity
 FROM stores
 INNER JOIN inventory
 ON stores.id = store_id
@@ -84,7 +71,7 @@ WHERE inventory.quantity < 10
 ORDER BY stores.name;
 
 --Requirement 8
-SELECT customers.first_name, customers.last_name, purchases.purchase_date, items.name, payment_types.payment_method, purchase_items.quantity
+SELECT customers.first_name, customers.last_name, purchases.purchase_date, items.name as item_name, payment_types.payment_method, purchase_items.quantity
 FROM customers
 INNER JOIN purchases
 ON customers.id = customer_id
