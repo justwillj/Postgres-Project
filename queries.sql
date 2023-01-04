@@ -6,7 +6,7 @@ ON address.id = stores.address_id
 ORDER BY name ASC;
 
 --Requirement 2
-SELECT stores.name, SUM(items.price) as total_sales
+SELECT stores.name, CAST (SUM(items.price) AS MONEY) as total_sales
 FROM stores
 INNER JOIN purchases
 ON stores.id = store_id
@@ -31,7 +31,7 @@ INNER JOIN inventory
 ON stores.id = store_id
 INNER JOIN items
 ON items.id = item_id
-WHERE stores.id = 16;
+WHERE stores.name = 'Administaff, Inc.';
 
 --Requirement 5
 SELECT purchases.purchase_date, SUM(items.price)
@@ -42,9 +42,23 @@ INNER JOIN purchase_items
 ON purchases.id = purchase_id
 INNER JOIN items
 ON items.id = item_id
-WHERE stores.id = 16
+WHERE stores.name = 'Administaff, Inc.'
 GROUP BY purchases.purchase_date
 ORDER BY purchase_date ASC;
+
+--
+SELECT EXTRACT (MONTH FROM purchases.purchase_date) AS month, SUM(items.price)
+FROM stores
+INNER JOIN purchases
+ON stores.id = store_id
+INNER JOIN purchase_items
+ON purchases.id = purchase_id
+INNER JOIN items
+ON items.id = item_id
+WHERE stores.name = 'Administaff, Inc.'
+GROUP BY purchases.purchase_date
+ORDER BY month ASC;
+--
 
 --Requirement 6
 SELECT stores.name, payment_types.payment_method, COUNT(payment_types.payment_method)
@@ -55,7 +69,7 @@ INNER JOIN purchase_items
 ON purchases.id = purchase_id
 INNER JOIN payment_types
 ON payment_types.id = payment_type_id
-WHERE stores.id = 15
+WHERE stores.name = 'Benchmark Electronics, Inc.'
 GROUP BY stores.name, payment_types.payment_method
 ORDER BY payment_types.payment_method;
 
@@ -80,7 +94,7 @@ INNER JOIN purchase_items
 ON purchases.id = purchase_id
 INNER JOIN items
 ON items.id = item_id
-WHERE customers.id = 154
+WHERE customers.first_name ='Alfred' AND customers.last_name = 'Poggi'
 ORDER BY purchases.purchase_date DESC;
 
 --Requirement 9
