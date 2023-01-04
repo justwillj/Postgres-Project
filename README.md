@@ -40,7 +40,9 @@
    > SELECT s.name AS "Store Name", a.street AS "Street Address", a.street2 AS "Suite", a.city AS "City", a.state AS "State", a.zip AS "Zip Code"
    > FROM stores s
    > INNER JOIN address a
-   > ON address_id = a.id 4. This is a valid query that will run without error.
+   > ON address_id = a.id
+
+   4. This is a valid query that will run without error.
 
 3. What is the relationship between the stores and customers tables?
 

@@ -111,7 +111,14 @@ INSERT INTO items (name,price,notes) VALUES
 	('Frosted Flakes',5,'They’re Grate');
 
 --Requirement 12
-
+INSERT INTO inventory (store_id,item_id,quantity)
+VALUES 
+(8,56,50),
+(9,56,50),
+(15,56,50),
+(16,56,50),
+(17,56,50),
+(18,56,50)
 
 --Requirement 13
 UPDATE items SET notes = 'They’re Gr-r-reat!'
