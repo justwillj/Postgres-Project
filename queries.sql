@@ -25,7 +25,7 @@ ON stores.id = store_id
 ORDER BY name ASC;
 
 --Requirement 4
-SELECT stores.name, items.name, inventory.quantity, items.price, items.notes
+SELECT stores.name as store_name, items.name as item_name, inventory.quantity, items.price, items.notes
 FROM stores
 INNER JOIN inventory
 ON stores.id = store_id
@@ -48,7 +48,7 @@ ORDER BY month ASC;
 
 
 --Requirement 6
-SELECT stores.name, payment_types.payment_method, COUNT(payment_types.payment_method)
+SELECT stores.name as store_name, payment_types.payment_method, COUNT(payment_types.payment_method)
 FROM stores
 INNER JOIN purchases
 ON stores.id = store_id
